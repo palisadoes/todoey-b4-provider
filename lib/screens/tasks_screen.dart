@@ -12,15 +12,23 @@ class TasksScreen extends StatelessWidget {
         backgroundColor: Colors.lightBlueAccent,
         child: const Icon(Icons.add),
         onPressed: () {
+          // By default, the BottomSheet will take up half the screen
+          // This needs to be adjusted. See other comments below.
           showModalBottomSheet(
             context: context,
             builder: (BuildContext context) => SingleChildScrollView(
               child: Container(
                 padding: EdgeInsets.only(
                     bottom: MediaQuery.of(context).viewInsets.bottom),
+                // To have the AddTaskScreen sit just above the keyboard,
+                // you can wrap it inside a SingleChildScrollView, which
+                // determines the padding at the bottom using a MediaQuery.
                 child: AddTaskScreen(),
               ),
             ),
+            // For certain screen sizes, this may mean the Add button is
+            // obscured. Setting the isScrolledControlled property to true
+            // you can make the modal take up the full screen:
             isScrollControlled: true,
           );
         },

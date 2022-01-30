@@ -23,6 +23,7 @@ class AddTaskScreen extends StatelessWidget {
               style: TextStyle(color: Colors.lightBlueAccent, fontSize: 30),
             ),
             const TextField(
+              // Make the keyboard automatically appear
               autofocus: true,
               textAlign: TextAlign.center,
             ),
